@@ -15,8 +15,8 @@ int curRiddle;
 
 void Sinuss() {
 
-	int PotentioRaw;
-	int PotentioRaw2;
+	int PotentioRaw = 0;
+	int PotentioRaw2 = 0;
 
 	//HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, GPIO_PIN_SET);
 	//HAL_ADC_Start(&hadc1);
@@ -41,9 +41,18 @@ void Sinuss() {
 	}
 }
 void DSPoti() {
-	//tim1_cnt = htim1.Instance->CNT;
-	//direction = !(__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim1));
-	RE.PlayerSearching(tim1_cnt / 40);
+	if(!isDrehSInit){
+		//tim1_cnt = htim1.Instance->CNT;
+		//direction = !(__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim1));
+		RE.PlayerSearching(tim1_cnt);
+	}
+	else {
+		RE.init();
+		//tim1_cnt = htim1.Instance->CNT;
+		//direction = !(__HAL_TIM_IS_TIM_COUNTING_DOWN(&htim1));
+		RE.PlayerSearching(tim1_cnt);
+	}
+						
 }
 void Neopixl() {
 
