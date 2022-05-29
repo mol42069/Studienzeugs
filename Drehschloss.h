@@ -5,7 +5,7 @@
 namespace REER {
 	class Drehschloss {
 	public:
-		bool REclicked();
+		void REclicked();
 		void PlayerSearching(int REE);
 		void init();
 		void Solved(void);
